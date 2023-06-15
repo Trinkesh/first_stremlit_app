@@ -15,8 +15,6 @@ import pandas
 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 
-streamlit.dataframe(my_fruit_list)
-
 # lets add a pick list here so they can pick fruit they wanted to include
 
 streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
