@@ -29,9 +29,13 @@ streamlit.dataframe(fruits_to_show)
 # lets add some request libabry to display fruitevice api response
 # lets get the fruite vice data looking little nicer
 streamlit.header("Fruityvice Fruit Advice!")
+# add a text entry box and send the input to the fruitevice as a part of the API call
+
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
 
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit"+fruit_choice )
 # take the json version and normalized it
 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
